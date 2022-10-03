@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import Navi from './Navi.jsx'
+import Accord from './Accord.jsx'
+import {useState} from 'react'
+export default function App() {
+  
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  const [mode,setMode] = useState("light");
+  const  toggleMode = () => {
+    if (mode==='light') {
+        setMode('dark');
+        document.body.style.backgroundColor = 'grey'
+    }
+    else{
+        setMode('light');
+        document.body.style.backgroundColor = 'white'
+    }
+}
+   return (
+    <div className="" >
+     <Navi mode={mode} toggleMode={toggleMode}/>
+<div className="mt-5">
+<Accord/></div>
+     {/* <h1 className="bg-dark text-white">Some Para Below</h1>
+     <p className="bg-light">HEre is a pargrahp</p> */}
     </div>
   );
 }
-
-export default App;
